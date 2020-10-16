@@ -11,7 +11,7 @@ body {
   display: flex;
 }
 
-.file-data-screen, #view {
+.file-data-screen, #view, .file-read {
   width: 300px;
   min-height: 300px;
   border: 1px solid;
@@ -22,10 +22,15 @@ body {
 
 .row {
   display: flex;
-  padding: 10px;
   border-bottom: 1px solid;
 }
 
+.row .left, .row .right {
+  padding: 10px;
+}
+
 .row .left {
+  width: 118px;
   margin-right: 20px;
+  border-right: 1px solid;
 }

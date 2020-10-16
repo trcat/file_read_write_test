@@ -1,6 +1,7 @@
 const input = document.getElementById("input");
 const list = document.querySelector(".file-data-screen");
 const view = document.getElementById("view");
+const read = document.querySelector(".file-read");
 
 /**
  * 创建行
@@ -28,9 +29,10 @@ function generateRow(label, content) {
  * 添加行
  * @param {string} label
  * @param {string} content
+ * @param {Element} target
  */
-function appendRow(label, content) {
-  list.appendChild(generateRow(label, content));
+function appendRow(label, content, target = list) {
+  target.appendChild(generateRow(label, content));
 }
 
 function transformTime(time) {
@@ -54,7 +56,7 @@ input.onchange = (e) => {
   // 目前只考虑单选
   const file = e.target.files[0];
   // 展示文件基本信息
-  appendRow("文件名: ", file.name);
+  appendRow("文件名", file.name);
   appendRow("文件类型", file.type);
   appendRow("文件大小", file.size + "b");
   appendRow("最后更新时间", transformTime(file.lastModified));
@@ -65,7 +67,10 @@ input.onchange = (e) => {
   // 获取文件内容
   const fileReader = new FileReader();
   fileReader.onload = (e) => {
-    console.log(JSON.parse(e.target.result));
+    const obj = JSON.parse(e.target.result);
+    Object.keys(obj).forEach((key) => {
+      appendRow(key, obj[key], read);
+    });
   };
   fileReader.readAsText(file);
 };
