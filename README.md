@@ -1,10 +1,8 @@
-# file_read_write_test
-测试如何是的网页上读取和写入本地数据
-
 ## Log
 
 - [x] 获取本地文件基本信息
 - [x] 预览文件内容
+- [ ] 读取文件中的内容
 
 ## File Object
 
@@ -49,3 +47,5 @@ input.onchange = (e) => {
 - 通过 `window.URL.createObjectURL` 函数, 传入 `File` Object, 得到 `Blob` url
 - 将 url 赋值给 `<iframe>` 的 `src` 属性, 这样就会实现文件内容的预览
 - 最后用 `window.URL.revokeObjectURL` 释放 url
+
+同理, 图片和音频等内容的预览也非常简单, 只要将 `<img>` 或 `<video>` 标签的 `src` 数学赋值 `Blob` url 即可.
