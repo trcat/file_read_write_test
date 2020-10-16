@@ -42,7 +42,15 @@ function transformTime(time) {
   return `${year}-${month}-${day}`;
 }
 
+function clearList() {
+  while (list.firstChild) {
+    list.removeChild(list.firstChild);
+  }
+}
+
 input.onchange = (e) => {
+  // 清空 list
+  clearList();
   // 目前只考虑单选
   const file = e.target.files[0];
 
@@ -52,6 +60,6 @@ input.onchange = (e) => {
   appendRow("最后更新时间", transformTime(file.lastModified));
 
   const fileURL = window.URL.createObjectURL(file);
-  view.setAttribute('src', fileURL);
-  window.URL.revokeObjectURL(fileURL)
+  view.setAttribute("src", fileURL);
+  window.URL.revokeObjectURL(fileURL);
 };
