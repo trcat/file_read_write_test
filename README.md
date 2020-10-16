@@ -37,7 +37,7 @@ const view = document.getElementById("view");
 
 input.onchange = (e) => {
   const file = e.target.files[0];
-  const fileURL = window.URL.create/ObjectURL(file);
+  const fileURL = window.URL.createObjectURL(file);
   view.setAttribute('src', fileURL);
   window.URL.revokeObjectURL(fileURL)
 };
