@@ -62,4 +62,10 @@ input.onchange = (e) => {
   const fileURL = window.URL.createObjectURL(file);
   view.setAttribute("src", fileURL);
   window.URL.revokeObjectURL(fileURL);
+  // 获取文件内容
+  const fileReader = new FileReader();
+  fileReader.onload = (e) => {
+    console.log(JSON.parse(e.target.result));
+  };
+  fileReader.readAsText(file);
 };
