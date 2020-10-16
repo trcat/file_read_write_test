@@ -1,3 +1,5 @@
+> 测试过程中操作的文件都是 `JSON` 文件, 其他文件的操作方式也是大同小异
+
 ## Log
 
 - [x] 获取本地文件基本信息
@@ -34,7 +36,7 @@ const view = document.getElementById("view");
 
 input.onchange = (e) => {
   const file = e.target.files[0];
-  const fileURL = window.URL.createObjectURL(file);
+  const fileURL = window.URL.create/ObjectURL(file);
   view.setAttribute('src', fileURL);
   window.URL.revokeObjectURL(fileURL)
 };
