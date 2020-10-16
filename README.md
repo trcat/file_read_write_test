@@ -5,6 +5,7 @@
 - [x] 获取本地文件基本信息
 - [x] 预览文件内容
 - [x] 读取文件中的内容
+- [ ] 文件写入
 
 ## File Object
 
@@ -80,3 +81,17 @@ input.onchange = (e) => {
 
 - 通过 `<input>` 获得 `File` Object
 - 设定 `onload` 函数, 当触发 `readAsText` 等函数的时候或处罚, 通过 `e.target.result` 获取文件内容
+
+
+
+## 写入文件
+
+### 使用 `FileSaver.js`
+
+自己功力还不够, 没有办法自己用原生 JavaScript 写文件的写入, 目前先用 [FileSaver.js](https://github.com/eligrey/FileSaver.js) 实现写入, 后续看这个插件的源码, 研究一下原生实现方式.
+
+这个插件的使用方式这里不作赘述.
+
+#### 局限
+
+这个写入和在服务端的写入不一样, 需要下载才能得到文件.
