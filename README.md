@@ -1,2 +1,51 @@
 # file_read_write_test
 测试如何是的网页上读取和写入本地数据
+
+## Log
+
+- [x] 获取本地文件基本信息
+- [x] 预览文件内容
+
+## File Object
+
+通过`<input type="file">` 得到的 `File` Object 有一下几个常用属性：
+
+- name 
+  - 文件名, `string`
+- type
+  - 文件类型,  `string`
+- size
+  - 文件大小, `string`, 以字节为单位
+- lastModified
+  - 上次更新时间, `number`, 以毫秒为单位
+
+
+
+## 预览文件内容
+
+[MDN](https://developer.mozilla.org/zh-CN/docs/Web/API/File/Using_files_from_web_applications) 中记录的最简单的方式就是通过 `<iframe>` 表示实现, 示例代码如下: 
+
+```html
+<input type="file" id="input">
+<iframe id="view" src="" frameborder="0"></iframe>
+```
+
+```javascript
+const input = document.getElementById("input");
+const view = document.getElementById("view");
+
+input.onchange = (e) => {
+  const file = e.target.files[0];
+  const fileURL = window.URL.createObjectURL(file);
+  view.setAttribute('src', fileURL);
+  window.URL.revokeObjectURL(fileURL)
+};
+
+```
+
+大致思路如下:
+
+- 通过 `<input>` 获得 `File` Object
+- 通过 `window.URL.createObjectURL` 函数, 传入 `File` Object, 得到 `Blob` url
+- 将 url 赋值给 `<iframe>` 的 `src` 属性, 这样就会实现文件内容的预览
+- 最后用 `window.URL.revokeObjectURL` 释放 url
