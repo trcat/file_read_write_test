@@ -93,7 +93,7 @@ xmlBtn.onclick = () => {
   const xhr = new XMLHttpRequest();
   xhr.open('GET', './test.json')
   xhr.addEventListener("load", (e) => {
-    console.log(e);
+    console.log(JSON.parse(e.target.response));
   });
   xhr.send()
 };
