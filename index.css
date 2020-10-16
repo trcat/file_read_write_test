@@ -9,6 +9,16 @@ body {
 
 .wrap {
   display: flex;
+  margin-top: 20px;
+}
+
+.wrap .wrap-item + .wrap-item {
+  margin-left: 10px;
+}
+
+.text {
+  text-align: center;
+  margin-bottom: 10px;
 }
 
 .file-data-screen, #view, .file-read {
@@ -16,8 +26,6 @@ body {
   min-height: 300px;
   border: 1px solid;
   box-sizing: border-box;
-  margin-top: 20px;
-  margin-right: 20px;
 }
 
 .row {

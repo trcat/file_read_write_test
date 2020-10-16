@@ -9,11 +9,20 @@
 <body>
   <input type="file" id="input">
   <div class="wrap">
-    <div class="file-data-screen"></div>
-    <div class="file-view">
-      <iframe id="view" src="" frameborder="0"></iframe>
+    <div class="wrap-item">
+      <div class="text">文件基本信息</div>
+      <div class="file-data-screen"></div>
     </div>
-    <div class="file-read"></div>
+    <div class="wrap-item">
+      <div class="text">预览文件内容</div>
+      <div class="file-view">
+        <iframe id="view" src="" frameborder="0"></iframe>
+      </div>
+    </div>
+    <div class="wrap-item">
+      <div class="text">读取JSON文件内容并显示其中属性</div>
+      <div class="file-read"></div>
+    </div>
   </div>
   <script src="./index.js"></script>
 </body>

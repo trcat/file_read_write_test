@@ -64,13 +64,16 @@ input.onchange = (e) => {
   const fileURL = window.URL.createObjectURL(file);
   view.setAttribute("src", fileURL);
   window.URL.revokeObjectURL(fileURL);
-  // 获取文件内容
-  const fileReader = new FileReader();
-  fileReader.onload = (e) => {
-    const obj = JSON.parse(e.target.result);
-    Object.keys(obj).forEach((key) => {
-      appendRow(key, obj[key], read);
-    });
-  };
-  fileReader.readAsText(file);
+  // 获取JSON内容
+  const jsonRegex = new RegExp(/\.json$/);
+  if (jsonRegex.test(file.name)) {
+    const fileReader = new FileReader();
+    fileReader.onload = (e) => {
+      const obj = JSON.parse(e.target.result);
+      Object.keys(obj).forEach((key) => {
+        appendRow(key, obj[key], read);
+      });
+    };
+    fileReader.readAsText(file);
+  }
 };
