@@ -53,12 +53,12 @@ input.onchange = (e) => {
   clearList();
   // 目前只考虑单选
   const file = e.target.files[0];
-
+  // 展示文件基本信息
   appendRow("文件名: ", file.name);
   appendRow("文件类型", file.type);
   appendRow("文件大小", file.size + "b");
   appendRow("最后更新时间", transformTime(file.lastModified));
-
+  // 预览文件内容
   const fileURL = window.URL.createObjectURL(file);
   view.setAttribute("src", fileURL);
   window.URL.revokeObjectURL(fileURL);
