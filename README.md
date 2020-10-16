@@ -51,3 +51,32 @@ input.onchange = (e) => {
 - 最后用 `window.URL.revokeObjectURL` 释放 url
 
 同理, 图片和音频等内容的预览也非常简单, 只要将 `<img>` 或 `<video>` 标签的 `src` 数学赋值 `Blob` url 即可.
+
+
+
+## 读取文件内容
+
+依靠 [File Reader](https://developer.mozilla.org/zh-CN/docs/Web/API/FileReader) 实现, 使用起来也是非常简单, 实例代码如下:
+
+```html
+<input type="file" id="input">
+```
+
+```javascript
+const input = document.getElementById("input");
+
+input.onchange = (e) => {
+  const file = e.target.files[0];
+  const fileReader = new FileReader();
+  fileReader.onload = (e) => {
+      // 文件的内容通过 e.target.result 得到
+     console.log(e.target.result)
+  };
+  fileReader.readAsText(file);
+};
+```
+
+大致思路:
+
+- 通过 `<input>` 获得 `File` Object
+- 设定 `onload` 函数, 当触发 `readAsText` 等函数的时候或处罚, 通过 `e.target.result` 获取文件内容
