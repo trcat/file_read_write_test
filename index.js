@@ -4,7 +4,6 @@ const view = document.getElementById("view");
 const read = document.querySelector(".file-read");
 const textarea = document.getElementById("textarea");
 const saveBtn = document.getElementById("save");
-const xmlBtn = document.getElementById("xmlBtn");
 
 /**
  * 创建行
@@ -86,15 +85,4 @@ saveBtn.onclick = () => {
   const value = textarea.value;
   var blob = new Blob([value], { type: "text/plain;charset=utf-8" });
   saveAs(blob, "write.txt");
-};
-
-// 通过 xml http request 获取文件内容
-xmlBtn.onclick = () => {
-  const xhr = new XMLHttpRequest();
-  xhr.open("GET", "./test.json");
-  xhr.addEventListener("load", (e) => {
-    window.alert("数据内容显示在控制台中!");
-    console.log(JSON.parse(e.target.response));
-  });
-  xhr.send();
 };

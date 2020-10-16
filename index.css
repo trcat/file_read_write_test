@@ -7,7 +7,7 @@ body {
 }
 
 
-.wrap, .write, .xml {
+.wrap, .write {
   display: flex;
   margin-top: 20px;
 }
