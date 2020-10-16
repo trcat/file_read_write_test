@@ -91,9 +91,9 @@ saveBtn.onclick = () => {
 // 通过 xml http request 获取文件内容
 xmlBtn.onclick = () => {
   const xhr = new XMLHttpRequest();
-  xhr.open('GET', './test.json')
+  xhr.open('post', './test.json')
   xhr.addEventListener("load", (e) => {
     console.log(JSON.parse(e.target.response));
   });
-  xhr.send()
+  xhr.send(JSON.stringify('Hello world!'))
 };
