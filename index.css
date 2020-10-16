@@ -7,7 +7,7 @@ body {
 }
 
 
-.wrap {
+.wrap, .write {
   display: flex;
   margin-top: 20px;
 }

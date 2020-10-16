@@ -2,6 +2,8 @@ const input = document.getElementById("input");
 const list = document.querySelector(".file-data-screen");
 const view = document.getElementById("view");
 const read = document.querySelector(".file-read");
+const textarea = document.getElementById("textarea");
+const saveBtn = document.getElementById("save");
 
 /**
  * 创建行
@@ -76,4 +78,11 @@ input.onchange = (e) => {
     };
     fileReader.readAsText(file);
   }
+};
+
+// 保存
+saveBtn.onclick = () => {
+  const value = textarea.value;
+  var blob = new Blob([value], {type: "text/plain;charset=utf-8"});
+  saveAs(blob, "write.txt");
 };
