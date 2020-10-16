@@ -91,9 +91,10 @@ saveBtn.onclick = () => {
 // 通过 xml http request 获取文件内容
 xmlBtn.onclick = () => {
   const xhr = new XMLHttpRequest();
-  xhr.open("PUT", "./test.json");
+  xhr.open("GET", "./test.json");
   xhr.addEventListener("load", (e) => {
+    window.alert("数据内容显示在控制台中!");
     console.log(JSON.parse(e.target.response));
   });
-  xhr.send(JSON.stringify("Hello world!"));
+  xhr.send();
 };
