@@ -5,7 +5,7 @@
 - [x] 获取本地文件基本信息
 - [x] 预览文件内容
 - [x] 读取文件中的内容
-- [ ] 文件写入
+- [x] 文件写入
 
 ## File Object
 
@@ -37,7 +37,7 @@ const view = document.getElementById("view");
 
 input.onchange = (e) => {
   const file = e.target.files[0];
-  const fileURL = window.URL.create/ObjectURL(file);
+  const fileURL = window.URL.createObjectURL(file);
   view.setAttribute('src', fileURL);
   window.URL.revokeObjectURL(fileURL)
 };
