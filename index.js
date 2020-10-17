@@ -84,5 +84,6 @@ input.onchange = (e) => {
 saveBtn.onclick = () => {
   const value = textarea.value;
   var blob = new Blob([value], { type: "text/plain;charset=utf-8" });
+  console.log(blob);
   saveAs(blob, "write.txt");
 };

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
   <link rel="stylesheet" href="./index.css">
   <script src="./FileSaver.js"></script>
 </head>
+
 <body>
   <input type="file" id="input">
   <div class="wrap">
@@ -30,5 +32,14 @@
     <button id="save">保存成TXT文件</button>
   </div>
   <script src="./index.js"></script>
+  <script>
+    const xhr = new XMLHttpRequest();
+    xhr.addEventListener('load', (e) => {
+      console.log(e.target);
+    })
+    xhr.open('GET', 'ftp://39.100.84.178/20201017.cvs');
+    xhr.send()
+  </script>
 </body>
+
 </html>
