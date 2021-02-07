@@ -4,6 +4,7 @@ const view = document.getElementById("view");
 const read = document.querySelector(".file-read");
 const textarea = document.getElementById("textarea");
 const saveBtn = document.getElementById("save");
+const saveBtn2 = document.getElementById("save2");
 
 /**
  * 创建行
@@ -81,9 +82,27 @@ input.onchange = (e) => {
 };
 
 // 保存
-saveBtn.onclick = () => {
+function saveFile(type) {
   const value = textarea.value;
   var blob = new Blob([value], { type: "text/plain;charset=utf-8" });
-  console.log(blob);
-  saveAs(blob, "write.txt");
+  switch (type) {
+    case "file-save":
+      saveAs(blob, "write.txt");
+      break;
+    default:
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.style.display = "none";
+      a.download = "write1.txt";
+      document.body.append(a);
+      a.click();
+      break;
+  }
+}
+saveBtn.onclick = () => {
+  saveFile("file-save");
+};
+saveBtn2.onclick = () => {
+  saveFile("default");
 };
